@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import styles from './PeopleList.module.css'
 
@@ -8,8 +9,10 @@ const PeopleList = ({people}) => {
             {people.map(({id, name, img})=> 
             <li className={styles.list__item} key={id}>
                 <a href='#'>
-                    <img className={styles.person__photo} src={img} alt={name}/>
-                    <p>{name}</p>
+                    <Link to={`/people/${id}`}>
+                        <img className={styles.person__photo} src={img} alt={name}/>
+                        <p>{name}</p>
+                    </Link>
                 </a>
             </li>
             )}
